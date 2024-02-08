@@ -8,26 +8,27 @@ const URL =
 
 const renderCardContent = (data) => {
 	const parser = new DOMParser();
-	const cardDoc = parser.parseFromString(data, 'text/xml');
+	const dataDoc = parser.parseFromString(data, 'text/xml');
 
 	const getElementValue = (el) => {
-		return cardDoc.getElementsByTagName(el)[0].childNodes[0].nodeValue;
+		return dataDoc.getElementsByTagName(el)[0].childNodes[0].nodeValue;
 	};
 
-	const title = getElementValue('name');
-	const subtitle = getElementValue('location');
-	const desc = getElementValue('job');
+	const name = getElementValue('name');
+	const location = getElementValue('location');
+	const job = getElementValue('job');
 
-	const cardEl = document.importNode(cardTemplate.content, true);
+	const cardTemplateNode = document.importNode(cardTemplate.content, true);
+	const cardEl = cardTemplateNode.querySelector('.card');
 
 	const cardTitleEl = cardEl.querySelector('.card__title');
-	cardTitleEl.textContent = title;
+	cardTitleEl.textContent = name;
 
 	const cardSubtitleEl = cardEl.querySelector('.card__subtitle');
-	cardSubtitleEl.textContent = subtitle;
+	cardSubtitleEl.textContent = location;
 
 	const cardDescEl = cardEl.querySelector('.card__desc');
-	cardDescEl.textContent = `"${desc}."`;
+	cardDescEl.textContent = `"${job}."`;
 
 	mainContainerEl.appendChild(cardEl);
 };
