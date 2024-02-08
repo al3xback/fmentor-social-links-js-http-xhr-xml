@@ -1,0 +1,20 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/functions' as func;
+
+body {
+	position: relative;
+	display: flex;
+	background-color: var.$color-off-black;
+	font-family: var.$font-family-primary;
+	-webkit-font-smoothing: antialiased;
+	font-size: func.em(var.$font-size-primary);
+	font-weight: var.$font-weight-400;
+	color: var.$color-white;
+	line-height: 1.4;
+}
+
+ul,
+ol {
+	margin: 0;
+	padding: 0;
+}

@@ -1,0 +1,56 @@
+@use '../abstracts/variables' as var;
+@use '../abstracts/functions' as func;
+
+.card,
+.card__head,
+.card__image,
+.card__title-wrap,
+.card__body,
+.card__links,
+.card__link {
+	display: flex;
+	flex-direction: column;
+}
+
+.card {
+	gap: func.em(24, var.$font-size-primary);
+	width: 100%;
+	max-width: func.em(330, var.$font-size-primary);
+	padding: func.em(24, var.$font-size-primary);
+	background-color: var.$color-dark-grey;
+	margin: func.em(40, var.$font-size-primary) 0
+		func.em(60, var.$font-size-primary);
+	border-radius: 12px;
+}
+
+.card__head {
+	align-items: center;
+	gap: func.em(24, var.$font-size-primary);
+	text-align: center;
+}
+
+.card__image img {
+	width: func.em(80, var.$font-size-primary);
+	height: auto;
+	border-radius: 50%;
+}
+
+.card__title-wrap {
+	gap: func.em(6, var.$font-size-primary);
+}
+
+.card__subtitle {
+	font-weight: var.$font-weight-700;
+	color: var.$color-green;
+}
+
+.card__links {
+	gap: func.em(16, var.$font-size-primary);
+}
+
+@media (min-width: 48em) {
+	.card {
+		max-width: func.em(354, var.$font-size-primary);
+		padding: func.em(36, var.$font-size-primary);
+	}
+}
