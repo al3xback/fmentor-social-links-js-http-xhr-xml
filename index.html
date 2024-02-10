@@ -33,72 +33,38 @@
 		<script src="js/main.js" defer type="module"></script>
 	</head>
 	<body>
+		<style>
+			.card-wrapper {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+		</style>
+
+		<template id="card-link-template">
+			<li class="card__link">
+				<a
+					href="#"
+					class="btn btn--primary btn--full"
+					rel="noopener"
+					target="_blank"></a>
+			</li>
+		</template>
+
 		<template id="card-template">
 			<div class="card">
 				<div class="card__head">
 					<div class="card__image">
-						<img
-							width="80"
-							height="80"
-							src="./images/avatar.jpeg"
-							alt="Jessica Randall" />
+						<img width="80" height="80" />
 					</div>
 					<div class="card__title-wrap">
-						<h2 class="card__title">Jessica Randall</h2>
-						<p class="card__subtitle">London, United Kingdom</p>
+						<h2 class="card__title"></h2>
+						<p class="card__subtitle"></p>
 					</div>
-					<p class="card__desc">
-						&Prime;Front-end developer and avid reader.&Prime;
-					</p>
+					<p class="card__desc"></p>
 				</div>
 				<div class="card__body">
-					<ul class="card__links">
-						<li class="card__link">
-							<a
-								href="#"
-								class="btn btn--primary btn--full"
-								rel="noopener"
-								target="_blank"
-								>GitHub</a
-							>
-						</li>
-						<li class="card__link">
-							<a
-								href="#"
-								class="btn btn--primary btn--full"
-								rel="noopener"
-								target="_blank"
-								>Frontend Mentor</a
-							>
-						</li>
-						<li class="card__link">
-							<a
-								href="#"
-								class="btn btn--primary btn--full"
-								rel="noopener"
-								target="_blank"
-								>LinkedIn</a
-							>
-						</li>
-						<li class="card__link">
-							<a
-								href="#"
-								class="btn btn--primary btn--full"
-								rel="noopener"
-								target="_blank"
-								>Twitter</a
-							>
-						</li>
-						<li class="card__link">
-							<a
-								href="#"
-								class="btn btn--primary btn--full"
-								rel="noopener"
-								target="_blank"
-								>Instagram</a
-							>
-						</li>
-					</ul>
+					<ul class="card__links"></ul>
 				</div>
 			</div>
 		</template>
@@ -108,7 +74,11 @@
 		</header>
 
 		<main>
-			<div class="container"></div>
+			<div class="container">
+				<div class="card-wrapper">
+					<p class="loading">Fetching card data...</p>
+				</div>
+			</div>
 		</main>
 
 		<footer>
