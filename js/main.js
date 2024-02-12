@@ -6,7 +6,19 @@ const cardLinkTemplate = document.getElementById('card-link-template');
 const loadingEl = document.querySelector('.loading');
 
 const URL =
-	'https://gist.githubusercontent.com/al3xback/f296d84690a6ef99b03aa475d9e1a764/raw/2c9cecf92fd91600d67f32273c6cf43aeb95684e/social-links-data.xml';
+	'https://gist.githubusercontent.com/al3xback/f296d84690a6ef99b03aa475d9e1a764/raw/87911cdfa5d02d2b695466531d152c70f19a8e02/social-links-data.xml';
+
+const removeLoading = () => {
+	loadingEl.parentElement.removeChild(loadingEl);
+};
+
+const handleError = (msg) => {
+	removeLoading();
+
+	const errorEl = document.createElement('p');
+	errorEl.textContent = msg;
+	cardWrapperEl.appendChild(errorEl);
+};
 
 const renderCardContent = (data) => {
 	const parser = new DOMParser();
@@ -63,8 +75,8 @@ const renderCardContent = (data) => {
 		cardLinksEl.appendChild(cardLinkTemplateNode);
 	}
 
-	loadingEl.parentElement.removeChild(loadingEl);
+	removeLoading();
 	cardWrapperEl.appendChild(cardTemplateNode);
 };
 
-sendHttpRequest('GET', URL, renderCardContent);
+sendHttpRequest('GET', URL, renderCardContent, handleError);
