@@ -16,7 +16,9 @@ const handleError = (msg) => {
 	removeLoading();
 
 	const errorEl = document.createElement('p');
+	errorEl.className = 'error';
 	errorEl.textContent = msg;
+
 	cardWrapperEl.appendChild(errorEl);
 };
 
