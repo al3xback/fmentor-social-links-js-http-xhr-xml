@@ -1,12 +1,12 @@
 import { sendHttpRequest } from './util.js';
 
+const URL =
+	'https://gist.githubusercontent.com/al3xback/f296d84690a6ef99b03aa475d9e1a764/raw/87911cdfa5d02d2b695466531d152c70f19a8e02/social-links-data.xml';
+
 const cardWrapperEl = document.querySelector('.card-wrapper');
 const cardTemplate = document.getElementById('card-template');
 const cardLinkTemplate = document.getElementById('card-link-template');
 const loadingEl = document.querySelector('.loading');
-
-const URL =
-	'https://gist.githubusercontent.com/al3xback/f296d84690a6ef99b03aa475d9e1a764/raw/87911cdfa5d02d2b695466531d152c70f19a8e02/social-links-data.xml';
 
 const removeLoading = () => {
 	loadingEl.parentElement.removeChild(loadingEl);
