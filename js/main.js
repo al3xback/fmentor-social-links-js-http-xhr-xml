@@ -26,20 +26,26 @@ const renderCardContent = (data) => {
 	const parser = new DOMParser();
 	const dataDoc = parser.parseFromString(data, 'text/xml');
 
-	const getElementValue = (el) => {
-		return dataDoc.getElementsByTagName(el)[0].childNodes[0].nodeValue;
+	const getElementValue = (name) => {
+		const element = dataDoc.getElementsByTagName(name)[0];
+		const hasChildren = !!element.children.length;
+		if (hasChildren) {
+			return [...element.children].map(
+				(item) => item.childNodes[0].nodeValue
+			);
+		}
+		return element.childNodes[0].nodeValue;
 	};
 
 	const name = getElementValue('name');
 	const location = getElementValue('location');
 	const job = getElementValue('job');
 	const image = getElementValue('image');
-	const socialLinksEl = dataDoc.getElementsByTagName('social_links')[0];
-	const socialLinks = Array.from(socialLinksEl.children).map((link) => {
-		const val = link.childNodes[0].nodeValue.split(': ');
+	const socialLinks = getElementValue('social_links').map((link) => {
+		const linkInfo = link.split(': ');
 		return {
-			name: val[0],
-			url: val[1],
+			name: linkInfo[0],
+			url: linkInfo[1],
 		};
 	});
 
