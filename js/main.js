@@ -52,10 +52,6 @@ const renderCardContent = (data) => {
 	const cardTemplateNode = document.importNode(cardTemplate.content, true);
 	const cardEl = cardTemplateNode.querySelector('.card');
 
-	const cardImageEl = cardEl.querySelector('.card__image img');
-	cardImageEl.src = './images/' + image;
-	cardImageEl.alt = name;
-
 	const cardTitleEl = cardEl.querySelector('.card__title');
 	cardTitleEl.textContent = name;
 
@@ -64,6 +60,10 @@ const renderCardContent = (data) => {
 
 	const cardDescEl = cardEl.querySelector('.card__desc');
 	cardDescEl.textContent = `"${job}."`;
+
+	const cardImageEl = cardEl.querySelector('.card__image img');
+	cardImageEl.src = './images/' + image;
+	cardImageEl.alt = name;
 
 	const cardLinksEl = cardEl.querySelector('.card__links');
 
