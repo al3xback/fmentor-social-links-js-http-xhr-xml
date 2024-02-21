@@ -58,8 +58,8 @@ const renderCardContent = (data) => {
 	const cardSubtitleEl = cardEl.querySelector('.card__subtitle');
 	cardSubtitleEl.textContent = location;
 
-	const cardDescEl = cardEl.querySelector('.card__desc');
-	cardDescEl.textContent = `"${job}."`;
+	const cardDescriptionEl = cardEl.querySelector('.card__desc');
+	cardDescriptionEl.textContent = `"${job}."`;
 
 	const cardImageEl = cardEl.querySelector('.card__image img');
 	cardImageEl.src = './images/' + image;
