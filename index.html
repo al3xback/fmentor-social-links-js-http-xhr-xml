@@ -42,6 +42,19 @@
 			}
 		</style>
 
+		<template id="card-head-template">
+			<div class="card__head">
+				<div class="card__image">
+					<img width="80" height="80" />
+				</div>
+				<div class="card__title-wrap">
+					<h2 class="card__title"></h2>
+					<p class="card__subtitle"></p>
+				</div>
+				<p class="card__desc"></p>
+			</div>
+		</template>
+
 		<template id="card-link-template">
 			<li class="card__link">
 				<a
@@ -52,22 +65,14 @@
 			</li>
 		</template>
 
-		<template id="card-template">
-			<div class="card">
-				<div class="card__head">
-					<div class="card__image">
-						<img width="80" height="80" />
-					</div>
-					<div class="card__title-wrap">
-						<h2 class="card__title"></h2>
-						<p class="card__subtitle"></p>
-					</div>
-					<p class="card__desc"></p>
-				</div>
-				<div class="card__body">
-					<ul class="card__links"></ul>
-				</div>
+		<template id="card-body-template">
+			<div class="card__body">
+				<ul class="card__links"></ul>
 			</div>
+		</template>
+
+		<template id="card-template">
+			<div class="card"></div>
 		</template>
 
 		<header>

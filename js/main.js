@@ -5,7 +5,9 @@ const URL =
 
 const cardWrapperEl = document.querySelector('.card-wrapper');
 const cardTemplate = document.getElementById('card-template');
+const cardHeadTemplate = document.getElementById('card-head-template');
 const cardLinkTemplate = document.getElementById('card-link-template');
+const cardBodyTemplate = document.getElementById('card-body-template');
 const loadingEl = document.querySelector('.loading');
 
 const removeLoading = () => {
@@ -52,20 +54,34 @@ const renderCardContent = (data) => {
 	const cardTemplateNode = document.importNode(cardTemplate.content, true);
 	const cardEl = cardTemplateNode.querySelector('.card');
 
-	const cardTitleEl = cardEl.querySelector('.card__title');
+	/* [card head] */
+	const cardHeadTemplateNode = document.importNode(
+		cardHeadTemplate.content,
+		true
+	);
+	const cardHeadEl = cardHeadTemplateNode.querySelector('.card__head');
+
+	const cardTitleEl = cardHeadEl.querySelector('.card__title');
 	cardTitleEl.textContent = name;
 
-	const cardSubtitleEl = cardEl.querySelector('.card__subtitle');
+	const cardSubtitleEl = cardHeadEl.querySelector('.card__subtitle');
 	cardSubtitleEl.textContent = location;
 
-	const cardDescriptionEl = cardEl.querySelector('.card__desc');
+	const cardDescriptionEl = cardHeadEl.querySelector('.card__desc');
 	cardDescriptionEl.textContent = `"${job}."`;
 
-	const cardImageEl = cardEl.querySelector('.card__image img');
+	const cardImageEl = cardHeadEl.querySelector('.card__image img');
 	cardImageEl.src = './images/' + image;
 	cardImageEl.alt = name;
 
-	const cardLinksEl = cardEl.querySelector('.card__links');
+	/* [card body] */
+	const cardBodyTemplateNode = document.importNode(
+		cardBodyTemplate.content,
+		true
+	);
+	const cardBodyEl = cardBodyTemplateNode.querySelector('.card__body');
+
+	const cardLinksEl = cardBodyEl.querySelector('.card__links');
 
 	for (const socialLink of socialLinks) {
 		const { name, url } = socialLink;
@@ -83,7 +99,10 @@ const renderCardContent = (data) => {
 		cardLinksEl.appendChild(cardLinkTemplateNode);
 	}
 
+	/* [init] */
 	removeLoading();
+	cardEl.appendChild(cardHeadTemplateNode);
+	cardEl.appendChild(cardBodyTemplateNode);
 	cardWrapperEl.appendChild(cardTemplateNode);
 };
 
